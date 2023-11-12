@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://byytjssddqe1m"]
+[gd_scene load_steps=5 format=3 uid="uid://byytjssddqe1m"]
 
 [ext_resource type="PackedScene" uid="uid://brgpc1nkt0fg1" path="res://Scenes/player.tscn" id="1_ym6lr"]
 [ext_resource type="PackedScene" uid="uid://coi6d074itnyp" path="res://Scenes/tree.tscn" id="3_c70u1"]
+[ext_resource type="Texture2D" uid="uid://klptb76dfsra" path="res://icon.svg" id="4_fan0v"]
 [ext_resource type="PackedScene" uid="uid://iolwkpul0m82" path="res://Scenes/terrain_tile_map.tscn" id="4_q7hrv"]
 
 [node name="World" type="Node2D"]
@@ -37,3 +38,9 @@ layer_0/tile_data = PackedInt32Array(524288, 131072, 3, 589824, 131072, 4, 65536
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(167, 153)
+texture = ExtResource("4_fan0v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
