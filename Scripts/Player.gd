@@ -9,7 +9,6 @@ func _ready():
 func _process(delta):
 	light_rotation.z_index = global_position.y
 	z_index = global_position.y 
-	print(z_index)
 	
 func _physics_process(delta):
 	velocity = Vector2(0, 0)
