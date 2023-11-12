@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://brgpc1nkt0fg1"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_o2c3b"]
+[ext_resource type="Texture2D" uid="uid://d1kovdlb66mrb" path="res://Assets/pieceBlack_border02.png" id="2_2xi4p"]
+[ext_resource type="Texture2D" uid="uid://bvu7sey0kjrkn" path="res://Assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="3_4x5vy"]
+[ext_resource type="Script" path="res://Scripts/PointLight2D.gd" id="4_0cgpb"]
+[ext_resource type="Texture2D" uid="uid://klptb76dfsra" path="res://icon.svg" id="5_5tr1c"]
+[ext_resource type="Texture2D" uid="uid://d25yfcu1nlkd2" path="res://Assets/Lights/Untitled.png" id="5_g6y2r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hd3jb"]
+radius = 14.0357
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_o2c3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(0, -20)
+texture = ExtResource("2_2xi4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.998217, 0.463273)
+shape = SubResource("CircleShape2D_hd3jb")
+
+[node name="PlayerLightShadow" type="PointLight2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.89062, 1.50781)
+energy = 0.3
+range_z_min = -4096
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 2.0
+texture = ExtResource("3_4x5vy")
+texture_scale = 0.5
+script = ExtResource("4_0cgpb")
+
+[node name="PlayerLight" type="PointLight2D" parent="."]
+scale = Vector2(1.89062, 1.50781)
+energy = 0.3
+range_z_min = -4096
+shadow_filter = 1
+shadow_filter_smooth = 10.0
+texture = ExtResource("3_4x5vy")
+texture_scale = 0.5
+script = ExtResource("4_0cgpb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -21)
+
+[node name="LightRotation" type="Node2D" parent="."]
+position = Vector2(0, -17)
+
+[node name="FlashLightShadow" type="PointLight2D" parent="LightRotation"]
+position = Vector2(18.4893, -3)
+scale = Vector2(2.26583, 1.34766)
+energy = 0.3
+range_z_min = -4096
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_filter_smooth = 2.0
+texture = ExtResource("5_g6y2r")
+offset = Vector2(250, -20)
+script = ExtResource("4_0cgpb")
+
+[node name="FlashLight" type="PointLight2D" parent="LightRotation"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(18.4893, -3)
+scale = Vector2(2.26583, 1.34766)
+energy = 0.3
+range_z_min = -4096
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 2
+texture = ExtResource("5_g6y2r")
+offset = Vector2(250, -20)
+script = ExtResource("4_0cgpb")
+
+[node name="PointLight2D4" type="PointLight2D" parent="LightRotation"]
+visible = false
+position = Vector2(1033, -7)
+scale = Vector2(1.89062, 1.50781)
+energy = 0.3
+range_z_min = -4096
+shadow_filter = 1
+shadow_filter_smooth = 6.3
+texture = ExtResource("3_4x5vy")
+texture_scale = 1.8
+script = ExtResource("4_0cgpb")
+
+[node name="Sprite2D" type="Sprite2D" parent="LightRotation"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(23, 0)
+scale = Vector2(0.102911, 0.0443681)
+texture = ExtResource("5_5tr1c")
+
+[node name="Marker2D" type="Marker2D" parent="LightRotation"]
+position = Vector2(1036, -7)
