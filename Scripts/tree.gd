@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var shadow = $Sprite2D/Shadow
+@onready var shadow = $Shadow
 
 func _process(delta):
 	z_index = global_position.y

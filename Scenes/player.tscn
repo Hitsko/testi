@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://brgpc1nkt0fg1"]
+[gd_scene load_steps=7 format=3 uid="uid://brgpc1nkt0fg1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_o2c3b"]
 [ext_resource type="Texture2D" uid="uid://d1kovdlb66mrb" path="res://Assets/pieceBlack_border02.png" id="2_2xi4p"]
 [ext_resource type="Texture2D" uid="uid://bvu7sey0kjrkn" path="res://Assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="3_4x5vy"]
 [ext_resource type="Script" path="res://Scripts/PointLight2D.gd" id="4_0cgpb"]
-[ext_resource type="Texture2D" uid="uid://klptb76dfsra" path="res://icon.svg" id="5_5tr1c"]
 [ext_resource type="Texture2D" uid="uid://d25yfcu1nlkd2" path="res://Assets/Lights/Untitled.png" id="5_g6y2r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hd3jb"]
@@ -78,24 +77,3 @@ shadow_item_cull_mask = 2
 texture = ExtResource("5_g6y2r")
 offset = Vector2(250, -20)
 script = ExtResource("4_0cgpb")
-
-[node name="PointLight2D4" type="PointLight2D" parent="LightRotation"]
-visible = false
-position = Vector2(1033, -7)
-scale = Vector2(1.89062, 1.50781)
-energy = 0.3
-range_z_min = -4096
-shadow_filter = 1
-shadow_filter_smooth = 6.3
-texture = ExtResource("3_4x5vy")
-texture_scale = 1.8
-script = ExtResource("4_0cgpb")
-
-[node name="Sprite2D" type="Sprite2D" parent="LightRotation"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(23, 0)
-scale = Vector2(0.102911, 0.0443681)
-texture = ExtResource("5_5tr1c")
-
-[node name="Marker2D" type="Marker2D" parent="LightRotation"]
-position = Vector2(1036, -7)
