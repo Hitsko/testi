@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://coi6d074itnyp"]
+[gd_scene load_steps=7 format=3 uid="uid://coi6d074itnyp"]
 
-[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_fo1m6"]
+[ext_resource type="Script" path="res://Scripts/object.gd" id="1_0bj7e"]
 [ext_resource type="Texture2D" uid="uid://dlpq14x6ofysy" path="res://Assets/objects/tree02.png" id="1_lgqsr"]
+[ext_resource type="Texture2D" uid="uid://cqwn3dph2omgu" path="res://Assets/Normal Maps/tree02_n.png" id="3_dmt3e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xydjh"]
+diffuse_texture = ExtResource("1_lgqsr")
+normal_texture = ExtResource("3_dmt3e")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8icu"]
 radius = 19.1852
@@ -12,11 +17,11 @@ polygon = PackedVector2Array(-51, -44, 1, -43, 67, -34, 5, -39, 23, -3, -24, -3,
 
 [node name="Tree" type="StaticBody2D"]
 position = Vector2(0, -2)
-script = ExtResource("1_fo1m6")
+script = ExtResource("1_0bj7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -148)
-texture = ExtResource("1_lgqsr")
+texture = SubResource("CanvasTexture_xydjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -8)
@@ -25,7 +30,7 @@ scale = Vector2(1.04247, 0.392273)
 shape = SubResource("CapsuleShape2D_r8icu")
 
 [node name="Shadow" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.184314)
 show_behind_parent = true
-z_index = -3
 occluder = SubResource("OccluderPolygon2D_xuusk")
 sdf_collision = false

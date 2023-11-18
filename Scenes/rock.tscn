@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://l38totbkyxmf"]
+
+[ext_resource type="Script" path="res://Scripts/object.gd" id="1_f5m8i"]
+[ext_resource type="Texture2D" uid="uid://em6j0v6eemeo" path="res://Assets/objects/foliagePack_055.png" id="1_i24v8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntin8"]
+size = Vector2(82, 31)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i6jyw"]
+polygon = PackedVector2Array(-15, -21, -28, -17, -38, -2, 38, -2, 34, -22, -14, -24)
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_f5m8i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+texture = ExtResource("1_i24v8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_ntin8")
+
+[node name="Shadow" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.184314)
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_i6jyw")
+sdf_collision = false
